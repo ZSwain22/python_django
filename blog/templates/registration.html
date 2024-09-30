@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+<div class = "jumbotron">
+    {% if registered == False %}
+        <h2>You are registered!!</h2>
+    {%else%}
+        <h2>Not registered</h2>
+        <h3>Fill out this form</h3>
+        <form method = "POST" enctype = "multiplart/form-data">
+            {% csrf_token %}
+            {{ register.as_p }}
+            {{ profile_form.as_p }}
+            <button class = "btn btn-success" type = "submit">Register</button>
+
+
+        </form>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
